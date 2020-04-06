@@ -4,12 +4,15 @@ Self-Driving Car Engineer Nanodegree Program
 
 The goal of this project is to build a path planner that creates smooth, safe trajectories for the car on highway road. Other vehicles moving around with different speeds to simulate the real situations on the road.
 
-The code contains: 
+The code contains:
 
-- path generation
-- analize sensor fusion data
-- behavior planning.
-- smooth trajectory generation.
+- path generation. Code for path generations starts at 81 line of the main.cpp file. First of all I read starting position of the car. After that on lines 109-114 I set up flags for lane occupancy and safe distance constant that i will use below
+
+- analize sensor fusion data. There is code for analize sensor fusion data at lines from 117 to 170. Here I find out which car in which lane and set up flags for lane occupancy
+
+- behavior planning. Code in lines 171-195 define car behavior depending on occupancy of the lanes
+
+- smooth trajectory generation. Code lines 197-309 describe how i create spline, define the actual x,y point we will use for the planer, break up spline according to desired reference velocity, fill the rest of the path up to 50 points and pack control data to json that would be sent to the simulator.
 
 My path planner is able to drive at least 7.15 miles without the incident as you can see on the printscreen of the simulator.
 
